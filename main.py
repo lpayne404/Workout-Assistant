@@ -1,5 +1,7 @@
 # Workout Assistant
 
+from workout_logger import create_workout, display_workout
+
 # Main Menu Loop
 
 while True:
@@ -10,6 +12,9 @@ while True:
 
     main_choice = input("\nChoose an option: ").strip()
     if main_choice == "1":
+
+        # Create Workout
+        workout = create_workout()
 
         while True:
 
@@ -41,10 +46,11 @@ while True:
 
 
             elif workout_choice == "2":
-                print("Viewing Workout...")
+                display_workout(workout)
 
             elif workout_choice == "3":
                 print("Finishing Workout...")
+                display_workout(workout)
                 break
 
             else:

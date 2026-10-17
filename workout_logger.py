@@ -35,13 +35,13 @@ def create_workout():
 
         # Validate input.
         try:
-            int(length)
+            length = int(length)
         # Handle input that is not a whole number.
         except ValueError:
             print("Please enter a whole number.")
             continue
 
-        if int(length) > 0:
+        if length > 0:
             break
 
         # Handle zero or negative values.
@@ -52,13 +52,13 @@ def create_workout():
 
         # Validate input.
         try:
-            int(energy)
+            energy = int(energy)
         # Handle input that is not a whole number.
         except ValueError:
             print("Please enter a whole number.")
             continue
 
-        if 1 <= int(energy) <= 10:
+        if 1 <= energy <= 10:
             break
 
         print("Energy level must be between 1 and 10.")
@@ -67,7 +67,12 @@ def create_workout():
         "Date": date,
         "Day Type": day_type,
         "Workout Length": length,
-        "Energy": energy,
+        "Energy": energy
     }
 
     return workout
+
+# View workout function.
+def display_workout(workout):
+    for key, value in workout.items():
+        print(f"{key}: {value}")
