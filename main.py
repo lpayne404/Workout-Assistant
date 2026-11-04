@@ -1,11 +1,11 @@
-# Workout Assistant
+# Run the Workout Assistant command-line application.
 
 from workout_logger import prompt_for_workout, display_workout
 
-# Main Menu Loop
+# Keep the main menu open until the user exits.
 
 while True:
-    # Main Menu
+    # Show the main menu.
     print("\nMain Menu\n")
     print("1. Start Workout")
     print("2. Exit")
@@ -13,12 +13,12 @@ while True:
     main_choice = input("\nChoose an option: ").strip()
     if main_choice == "1":
 
-        # Create Workout
+        # Collect details and create a workout.
         workout = prompt_for_workout()
 
         while True:
 
-            # Workout Menu
+            # Show actions for the current workout.
             print("\nWorkout Menu\n")
             print("1. Add Exercise")
             print("2. View Workout")
@@ -27,7 +27,7 @@ while True:
             workout_choice = input("\nChoose an option: ").strip()
             if workout_choice == "1":
                 
-                # Exercise Menu
+                # Keep the exercise menu open until the exercise is finished.
                 while True:
 
                     print("\nExercise Menu")
