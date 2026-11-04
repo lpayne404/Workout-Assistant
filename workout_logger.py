@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 #Workout creation function.
-def create_workout():
+def prompt_for_workout():
 
     while True:
         date = input("Enter workout date (YYYY-MM-DD): ").strip()
@@ -63,12 +63,30 @@ def create_workout():
 
         print("Energy level must be between 1 and 10.")
 
+    return create_workout(date, day_type, length, energy)
+
+def create_workout(date, day_type, length, energy):
+
+    if not 1 <= energy <= 10:
+        raise ValueError("Energy level must be between 1 and 10.")
+
+    if length <= 0:
+        raise ValueError("Length must be greater than 0.")
+
+    parsed_date = datetime.strptime(date, "%Y-%m-%d")
+    if parsed_date.strftime("%Y-%m-%d") != date:
+        raise ValueError("Date must be in YYYY-MM-DD format.")    
+
+    day_type = day_type.strip().upper()
+    if not day_type:
+        raise ValueError("Day type must be provided.")
+
     workout = {
-        "Date": date,
-        "Day Type": day_type,
-        "Workout Length": length,
-        "Energy": energy
-    }
+            "Date": date,
+            "Day Type": day_type,
+            "Workout Length": length,
+            "Energy": energy
+        }
 
     return workout
 

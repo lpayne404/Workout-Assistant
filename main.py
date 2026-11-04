@@ -1,6 +1,6 @@
 # Workout Assistant
 
-from workout_logger import create_workout, display_workout
+from workout_logger import prompt_for_workout, display_workout
 
 # Main Menu Loop
 
@@ -14,7 +14,7 @@ while True:
     if main_choice == "1":
 
         # Create Workout
-        workout = create_workout()
+        workout = prompt_for_workout()
 
         while True:
 
